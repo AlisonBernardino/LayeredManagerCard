@@ -8,13 +8,15 @@
   --neutral100: hsl(0, 0%, 100%);
   --neutral900: hsl(230, 32%, 15%);
 
-  --gradientColor: 45deg, var(--primaryColor), var(--secondaryColor);
+  --gradientColor: linear-gradient(45deg, var(--primaryColor), var(--secondaryColor));
 }
 
 body {
   display: grid;
   min-height: 100vh;
   place-content: center;
+  font-family: system-ui;
+  text-align: center;
 }
 
 .cardArea {
@@ -23,8 +25,14 @@ body {
   grid-template-columns: 2rem 20rem 2rem;
 }
 
+.helloMessage {
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+
 .welcomeArea {
   display: grid;
+  border-radius: 1rem;
   grid-template-rows: subgrid;
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
@@ -32,21 +40,34 @@ body {
   text-align: center;
 
   /* "Gradient color" effect */
-  background: linear-gradient(45deg, rgb(0, 217, 255), rgb(195, 0, 255));
-  color: rgb(255, 255, 255);
+  background: var(--gradientColor);
+  color: var(--neutral100);
 }
 
 .welcomeArea div {
+  padding-block: 1rem;
   grid-column: 2 / 3;
 }
 
 .chatStartArea {
-  background: rgb(255, 255, 255);
+  border-radius: 1rem;
+  padding: 2rem 4rem 4rem;
   grid-column: 2 / 3;
   grid-row: 2 / 4;
+  gap: 2rem;
+  background: var(--neutral100);
+  box-shadow: 0.4rem 0 1.5rem var(--neutral900);
 }
 
 .chatStartArea img {
   max-width: 200px;
   max-height: 200px;
+}
+
+.chatStartArea>* {
+  margin: 0;
+}
+
+.managerData>* {
+  margin: 0;
 }
